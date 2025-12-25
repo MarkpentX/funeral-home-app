@@ -1,0 +1,109 @@
+.modalOverlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 999;
+}
+
+.modalWindowContainer{
+    display: grid;
+    grid-template-rows: 70px 50px 200px 100px;
+    overflow-y: auto;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 540px;
+    min-height: 400px;
+    z-index: 1000;
+    background-color: #CFCFCF;
+    border-radius: 10px;
+}
+
+.modalWindowContainer img{
+    justify-self: right;
+    width: 50px;
+    height: 50px;
+}
+
+.modalWindowContainer h2{
+    margin: 0;
+    text-align: center;
+    font-size: 36px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #000000;
+}
+
+.formContainer{
+    display: grid;
+    /*gap: 20px;*/
+    align-items: center;
+    padding-inline: 50px;
+}
+
+.formContainer input{
+    padding-block: 12px;
+    padding-inline: 16px;
+    border: 1px solid #000000;
+    background-color: #CFCFCF;
+    color: #000000;
+    font-size: 16px;
+    font-family: "Arial", sans-serif;
+    border-radius: 10px;
+}
+
+.formContainer button{
+    padding-block: 15px;
+    padding-inline: 30px;
+    align-self: center;
+    justify-self: center;
+    background-color: #8f8c8c;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    color: #000000;
+    transition: 0.3s ease background-color;
+}
+
+.formContainer button:hover{
+    background-color: #61CE70;
+}
+
+.modalWindowContainer p{
+    text-align: center;
+    margin-block-start: 0;
+    color: #000000;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    padding-inline: 18%;
+
+    strong{
+        color: #FF7400;
+        font-family: "Arial", sans-serif;
+        font-weight: 500;
+    }
+}
+
+/*PHONE*/
+
+@media (max-width: 480px) {
+    .modalOverlay { padding: 15px; }
+    .modalWindowContainer {
+        grid-template-rows: 60px 50px auto 90px;
+        max-width: 95vw;
+        min-height: 420px;
+        padding: 20px;
+        border-radius: 15px;
+    }
+    .modalWindowContainer img { width: 45px; height: 45px; }
+    .modalWindowContainer h2 { font-size: 28px; line-height: 1.2; }
+    .formContainer { gap: 16px; padding: 0 20px; }
+    .formContainer input { padding: 14px 16px; font-size: 16px; border-radius: 12px; }
+    .formContainer button { padding: 16px 32px; font-size: 20px; border-radius: 12px; }
+    .modalWindowContainer p { font-size: 15px; line-height: 22px; padding-inline: 8%; }
+}

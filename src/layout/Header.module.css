@@ -1,0 +1,220 @@
+.headerContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 200px;
+    background-color: #101010;
+    align-items: center;
+    padding-block-start: 8px;
+}
+
+.addressContainer {
+    color: #FFFFFF;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    font-weight: 350;
+    padding-block-end: 8px;
+}
+
+.addressContainer a {
+    text-decoration: none;
+    color: #0077ff;
+}
+
+.addressContainer span {
+    color: #00ff00;
+}
+
+.logoIcon {
+    margin-inline-start: 16px;
+}
+
+.tellAgent {
+    justify-self: right;
+    padding-inline: 18px;
+    padding-block: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    background-color: #f2295b;
+    color: white;
+    transition: all 0.3s ease;
+    margin-inline-end: 16px;
+}
+
+.tellAgent:hover {
+    background-color: lime;
+    padding-inline: 19px;
+    padding-block: 11px;
+}
+
+.contactsContainer {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    padding-inline-start: 0;
+    gap: 8px;
+}
+
+.contactsContainer li a img {
+    width: 42px;
+    height: 42px;
+    transition: all 0.3s ease;
+}
+
+.contactsContainer li a img:hover {
+    width: 39px;
+    height: 39px;
+}
+
+.navigationContainer {
+    border-top: 2px solid #D1CDCD;
+    grid-column: 1/-1;
+    display: flex;
+    justify-content: center;
+}
+
+.menuLinks {
+    gap: 20px;
+    display: flex;
+    list-style: none;
+}
+
+.menuItem a {
+    text-decoration: none;
+    color: #D1CDCD;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    transition: all 0.3s ease;
+}
+
+.menuItem a:hover {
+    color: lime;
+    font-size: 20px;
+}
+
+.menuButton {
+    display: none;
+}
+
+@media screen and (max-width: 800px) {
+    .headerContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .contactsContainer {
+        display: none;
+    }
+
+    .tellAgent {
+        display: none;
+    }
+
+    .addressContainer {
+        display: none;
+    }
+
+    .navigationContainer {
+        display: none;
+    }
+
+    .menuButton {
+        display: block;
+        justify-self: right;
+        padding-inline-end: 14px;
+        border: none;
+        background: none;
+    }
+
+    .menuButton img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .mobileMenu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+        display: grid;
+        grid-template-rows: auto 1fr;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease-out;
+        overflow: hidden;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .crossButton {
+        background: none;
+        border: none;
+        justify-self: end;
+        align-self: start;
+        padding: 8px 16px;
+        cursor: pointer;
+    }
+
+    .crossButton img {
+        width: 40px;
+        height: 40px;
+        filter: brightness(0) invert(1);
+        transition: transform 0.2s ease;
+    }
+
+    .crossButton:hover img {
+        transform: rotate(90deg);
+    }
+
+    .mobileMenuList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 28px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        overflow-y: auto;
+        max-height: calc(100vh - 60px);
+    }
+
+    .mobileMenuList li a {
+        position: relative;
+        color: #ffffff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 30px;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 8px 0;
+        transition: all 0.3s ease;
+    }
+
+    .mobileMenuList li a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #f2295b;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+    }
+
+    .mobileMenuList li a:hover {
+        color: #f2295b;
+        transform: translateY(-3px);
+    }
+
+    .mobileMenuList li a:hover::after {
+        width: 70%;
+    }
+}
+
+body.mobile-menu-open {
+    overflow: hidden;
+    height: 100vh;
+}

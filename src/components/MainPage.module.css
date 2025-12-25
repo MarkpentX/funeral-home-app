@@ -1,0 +1,133 @@
+.mainPageContainer {
+    position: relative;
+    height: 600px;
+    background: linear-gradient(rgb(0,0,0,0.75), rgb(0,0,0,0.75)),
+    url('/public/imgs/background.jpg') center top / cover no-repeat;
+    background-color: #121212; /* fallback */
+    display: flex;
+    align-items: center;
+}
+
+.mainContent {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /*row-gap: 20px;*/
+    max-width: 1400px;
+    margin-inline: auto;
+}
+
+.mainContent h1{
+    grid-column: 1/3;
+    margin-block-end: 20px;
+    font-size: 36px;
+    font-family: "Arial", sans-serif;
+    font-weight: normal;
+    color: #f9fafb;
+}
+
+.mainContent p {
+    grid-column: 1/3;
+    margin: 0;
+    font-size: 20px;
+    margin-block-end: 28px;
+    font-family: "Montserrat", sans-serif;
+    letter-spacing: .5px;
+    line-height: 1.4;
+    font-weight: 400;
+    color: rgba(249, 250, 251, 0.94);
+}
+
+.mainContent a{
+    grid-column: 1/2;
+    justify-self: left;
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    justify-content: center;
+    text-decoration: none;
+    background-color: #398043;
+    font-family: "Montserrat", sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    padding-block: 15px;
+    padding-inline: 30px;
+    color: #FFFFFF;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+
+    img{
+        width: 24px;
+        height: 24px;
+    }
+}
+
+.mainContent a:hover{
+    background-color: #B84444;
+    text-decoration: underline;
+}
+
+/*PHONE*/
+
+@media (max-width: 800px) {
+    .mainPageContainer {
+        height: auto;
+        min-height: 500px;
+        padding: 40px 0;
+    }
+
+    .mainContent {
+        grid-template-columns: 1fr;
+        padding: 0 16px;
+        gap: 20px;
+    }
+
+    .mainContent h1 {
+        grid-column: 1;
+        font-size: 24px;
+        text-align: center;
+        margin-block-end: 16px;
+    }
+
+    .mainContent p {
+        grid-column: 1;
+        font-size: 16px;
+        text-align: center;
+        margin-block-end: 24px;
+        line-height: 1.5;
+    }
+
+    .mainContent a {
+        grid-column: 1;
+        justify-self: center;
+        width: 100%;
+        max-width: 300px;
+        font-size: 18px;
+        padding-block: 12px;
+        padding-inline: 20px;
+
+        img {
+            width: 20px;
+            height: 20px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .mainContent {
+        padding: 0 12px;
+    }
+
+    .mainContent h1 {
+        font-size: 20px;
+    }
+
+    .mainContent p {
+        font-size: 14px;
+    }
+
+    .mainContent a {
+        font-size: 16px;
+        padding-block: 10px;
+        padding-inline: 16px;
+    }
+}

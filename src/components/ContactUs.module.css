@@ -1,0 +1,41 @@
+.contactUsContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background: #212121;
+    padding-block: 80px;
+}
+
+.contactUsContainer h2{
+    text-align: center;
+    color: #FFFFFF;
+    margin-block-start: 0;
+    margin-block-end: 24px;
+    font-size: 2.25rem;
+    font-family: "Playfair Display", serif;
+}
+
+.contactUsContainer p{
+    color: rgba(255, 255, 255, 0.5);
+    font-family: "Inter", serif;
+    margin-block-start: 0;
+    margin-block-end: 32px;
+    font-size: 1.25rem;
+}
+
+.contactUsContainer a{
+    color: #212121;
+    font-size: .875rem;
+    background-color: #FFC105;
+    font-family: "Inter", serif;
+    text-decoration: none;
+    border-radius: 8px;
+    padding-block: 14px;
+    padding-inline: 32px;
+    transition: 0.3s background-color ease;
+}
+
+.contactUsContainer a:hover{
+    background-color: #E9B008;
+}

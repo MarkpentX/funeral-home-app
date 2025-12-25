@@ -1,0 +1,346 @@
+* {
+    box-sizing: border-box;
+}
+
+.MonumentsPageContainer {
+    position: relative;
+    max-height: 500px;
+    background: none;
+    /* Убираем вертикальный паддинг */
+    padding: 0;
+    display: block;
+}
+
+.descriptionContainer {
+    position: relative;
+    /* Убираем max-width, чтобы контейнер был на всю ширину */
+    width: 100%;
+    /* Убираем авто-маржины */
+    /* margin-inline: auto; */
+
+    /* Сохраняем большой внутренний паддинг для высоты баннера */
+    padding: 100px 350px;
+
+    background:
+            linear-gradient(rgba(16, 16, 16, 0.75), rgba(24, 24, 24, 0.75)),
+            url('/public/imgs/mramor.jpg') center center / cover no-repeat;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    grid-template-columns: none;
+    gap: 20px;
+
+    margin-block-end: 0;
+}
+
+.descriptionContainer h2 {
+    color: #FFFFFF;
+    font-family: "Arial", sans-serif;
+    font-size: 32px;
+    margin-block-end: 0;
+    font-weight: 700;
+}
+
+.descriptionContainer p {
+    color: #E0E0E0;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-block-start: 0;
+    margin-block-end: 30px;
+    font-family: "Arial", sans-serif;
+}
+
+.descriptionContainer button {
+    background-color: #B84444;
+    color: #FFFFFF;
+    border: none;
+    padding-block: 15px;
+    padding-inline: 30px;
+    font-size: 1.1em;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 4px;
+    transition: all 0.5s ease;
+}
+
+.descriptionContainer button:hover {
+    background-color: #3be8b0;
+    text-decoration: underline;
+    color: #000000;
+}
+
+.categoriesContainer{
+    max-width: 990px;
+    margin-inline: auto;
+    padding: 0 50px;
+    width: 100%;
+}
+
+.productsContainer {
+    max-width: 1400px;
+    margin-inline: auto;
+    padding: 0 50px;
+    width: 100%;
+}
+
+.colorDiv{
+    background-color: #3B352E;
+}
+
+.categoriesContainer h2{
+    text-align: center;
+    margin-block-start: 0;
+    padding-block-start: 52px;
+    font-size: 32px;
+    font-family: "Arial", sans-serif;
+    color: #FFFFFF;
+}
+
+.categoryContainer{
+    display: flex;
+    flex-wrap: wrap;
+    grid-column: 1/-1;
+    max-width: 1000px;
+    padding: 0;
+    margin-block-start: 32px;
+    margin-inline-start: 10px;
+    gap: 26px;
+    list-style: none;
+}
+
+.categoryItem{
+    cursor: pointer;
+    color: white;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.categoryItem:hover{
+    color: #61CE70;
+}
+
+.selectedCategory{
+    cursor: pointer;
+    color: #61CE70;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.productsContainer h2{
+    color: #FFFFFF;
+    font-size: 28px;
+    text-align: center;
+    margin-block-start: 0;
+
+    padding-block-start: 20px;
+    margin-block-end: 10px;
+    font-family: "Arial", sans-serif;
+}
+
+.productsContainer p{
+    text-align: center;
+    color: #E0E0E0;
+    font-family: "Arial", sans-serif;
+    font-size: 16px;
+    margin-block-start: 0;
+    margin-block-end: 46px;
+}
+
+/* --- Стили для сетки товаров --- */
+.productsGrid {
+    /* Изменен на более адаптивную сетку с помощью CSS Grid */
+    display: grid;
+    /* 4 колонки с автоматическим размером и минимальной шириной 250px для адаптивности */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px; /* Увеличенный отступ между карточками */
+    padding-block-end: 80px; /* Отступ снизу для секции */
+}
+
+/* --- Стили для красивой карточки товара (.productGridItem) --- */
+.productGridItem {
+    /* Базовый стиль карточки */
+    background-color: #2D2722; /* Темный, слегка теплый фон для контраста с .colorDiv */
+    border-radius: 8px; /* Скругленные углы */
+    overflow: hidden; /* Обрезка содержимого, чтобы изображение вписалось */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Легкая тень для глубины */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center; /* Центрирование текста внутри карточки */
+    padding-bottom: 20px; /* Внутренний отступ снизу */
+
+    /* Убираем старые grid-стили, так как родитель теперь использует grid */
+    width: 100%; /* Занимает всю ширину ячейки сетки */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Распределение пространства */
+    align-items: center;
+}
+
+.productGridItem:hover {
+    transform: translateY(-5px); /* Небольшой эффект поднятия при наведении */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Усиленная тень */
+}
+
+/* Стили для изображения */
+.productGridItem img {
+    width: 100%;
+    height: 300px; /* Фиксированная высота для единообразия, можно изменить на 'auto' */
+    object-fit: cover; /* Обеспечивает покрытие области без искажений */
+    margin-bottom: 15px;
+    border-bottom: 1px solid #4A423A; /* Разделительная линия */
+}
+
+/* Стили для заголовка (Название продукта) */
+.productGridItem h4 {
+    color: #F5F5F5; /* Светлый цвет */
+    font-family: "Arial", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 10px 15px 5px 15px; /* Уменьшаем вертикальные отступы */
+    text-align: center;
+    line-height: 1.3;
+}
+
+/* Стили для цены */
+.productGridItem h3 {
+    color: #FFFFFF; /* Яркий акцентный цвет для цены */
+    font-family: "Arial", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 10px 0 20px 0; /* Отступ между названием и кнопкой */
+    letter-spacing: 0.5px;
+}
+
+/* Стили для кнопки "Заказать" */
+.productGridItem button {
+    background-color: #B84444; /* Красный, привлекающий внимание цвет */
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 25px;
+    font-size: 1.0em;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: "Montserrat", sans-serif;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    width: 80%; /* Кнопка занимает большую часть ширины */
+    text-transform: uppercase;
+}
+
+.productGridItem button:hover {
+    background-color: #E65A5A; /* Более светлый оттенок при наведении */
+}
+
+/*PHONE*/
+
+@media (max-width: 1200px) {
+    .descriptionContainer { padding: 80px 200px; }
+    .descriptionContainer p { max-width: 85%; }
+}
+
+@media (max-width: 992px) {
+    .descriptionContainer { padding: 60px 100px; }
+    .categoriesContainer,
+    .productsContainer { padding: 0 30px; }
+}
+@media (max-width: 768px) {
+    .descriptionContainer {
+        padding: 50px 20px;
+        align-items: center;
+        text-align: center;
+    }
+    .descriptionContainer h2 { font-size: 28px; }
+    .descriptionContainer p {
+        max-width: 100%;
+        font-size: 1em;
+    }
+    .descriptionContainer button {
+        font-size: 1em;
+        padding: 12px 25px;
+        width: 100%;
+        max-width: 280px;
+    }
+
+    .categoriesContainer,
+    .productsContainer {
+        padding: 0 12px;   /* уменьшено с 15px */
+    }
+    .categoriesContainer h2,
+    .productsContainer h2 {
+        font-size: 26px;
+        padding-top: 30px;
+    }
+
+    .productGridItem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .productGridItem img {
+        width: calc(100% - 20px);   /* чуть уже, с отступами */
+        max-width: 380px;
+        height: auto;
+        max-height: 400px;
+        object-fit: contain;
+        object-position: center;
+        background: #000;
+        margin: 0 10px;
+    }
+
+    .productGridItem h4 {
+        font-size: 17px;
+        margin: 12px 10px 4px;
+        text-align: center;
+    }
+    .productGridItem h3 {
+        font-size: 22px;
+        text-align: center;
+    }
+    .productGridItem button {
+        width: 90%;
+        padding: 12px;
+        font-size: 0.95em;
+    }
+
+    .productsGrid {
+        gap: 30px;
+        padding: 0 10px 50px;   /* чуть уже по бокам */
+    }
+}
+
+@media (max-width: 480px) {
+    .descriptionContainer h2 { font-size: 24px; }
+    .descriptionContainer button {
+        max-width: 260px;
+    }
+    .categoriesContainer h2,
+    .productsContainer h2 {
+        font-size: 22px;
+    }
+
+    .productsGrid {
+        grid-template-columns: 1fr;
+    }
+    .productGridItem img {
+        width: calc(100% - 16px);
+        max-width: 340px;
+        max-height: 350px;
+        margin: 0 8px;
+    }
+}
+
+@media (max-width: 360px) {
+    .descriptionContainer h2 { font-size: 20px; }
+    .productGridItem img {
+        max-width: 300px;
+        max-height: 300px;
+    }
+}
